@@ -1,0 +1,6 @@
+pause
+notify2
+pyaml
+requests
+datetime
+pytz

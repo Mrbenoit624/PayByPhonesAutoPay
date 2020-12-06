@@ -1,0 +1,15 @@
+[Unit]
+Description=No more pain for parking
+AllowIsolate=yes
+
+[Service]
+Type=simple
+Restart=always
+User=%u REPLACE BY YOUR USER
+Environment=PYTHONUNBUFFERED=true
+ExecStart=python3 /usr/local/bin/paybyphones_autopay.py
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
