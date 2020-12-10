@@ -25,21 +25,21 @@ def pay(token, headers, id_parking):
     r = requests.get(f"https://consumer.paybyphoneapis.com/parking/accounts/{id_parking}/quote?licensePlate={licenseplate}&locationId={code_postal}&rateOptionId={id_rate}&durationTimeUnit=Days&durationQuantity={renew_day}&isParkUntil=false",
             headers=headers)
     start_time = datetime.strptime(r.json()["parkingStartTime"], '%Y-%m-%dT%H:%M:%SZ').replace(tzinfo=timezone.utc)
-    start_time += timedelta(minutes=1)
+    #start_time += timedelta(hours=1)
     start_time = start_time.strftime("%Y-%m-%dT%H:%M:%SZ")
     headers["X-Pbp-ClientType"] = "WebApp"
 
     r = requests.post(f"https://consumer.paybyphoneapis.com/parking/accounts/{id_parking}/sessions/",
             data = {"licensePlate" : licenseplate,
                     "locationId"   : code_postal,
-                    "stall"        : None,
+                    "stall"        : "",
                     "rateOptionId" : id_rate,
                     "startTime"    : start_time,
                     "quoteId"      : r.json()["quoteId"],
                     "duration"     : {"timeUnit":"days","quantity":renew_day},
                     "paymentMethod": {"paymentMethodType":"PaymentAccount",
                         "payload":
-                            {"paymentAccountId": paymentAccountId,"cvv":None}}},
+                            {"paymentAccountId": paymentAccountId,"cvv":""}}},
                     headers=headers)
     n.set_urgency(notify2.URGENCY_NORMAL)
 
@@ -108,7 +108,7 @@ if __name__ == "__main__":
             USERNAME = config["USERNAME"]
             PASSWORD = config["PASSWORD"]
             code_postal = config["code_postal"]
-            licensePlate = config["licenseplate"]
+            licenseplate = config["licenseplate"]
             renew_day = config["renew_day"]
         except yaml.YAMLError as exc:
             print(exc)

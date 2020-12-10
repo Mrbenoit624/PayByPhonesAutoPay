@@ -23,6 +23,18 @@ believe that it could ever be profitable for me.
 
 Hoping to avoid this ordeal to others.
 
+Après avoir reçu de multiples amendes parce que je n'ai pas réagi assez vite à
+au Délai de 6 jours appliqué à Paris pour les parkings. J'ai eu l'idée de
+ce petit programme pour contourner cette règle en s'occupant de payer les frais
+de stationnement pour moi.
+
+Je ne remercierai jamais cette règle qui n'a aucun sens pour un résident honnête.
+
+On peut dire que cet outil m'a tellement coûté en amendes qu'il est difficile de
+croire que cela pourrait être profitable pour moi.
+
+J'espère éviter ce calvaire aux autres.
+
 ## INSTALL
 
 To use it some steps are mandatory:
